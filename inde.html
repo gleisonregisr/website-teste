@@ -1,0 +1,513 @@
+<html><head><base href="https://febsinfo.com.br/">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEBSINFO - Suporte Técnico e Soluções Inovadoras</title>
+<style>
+  :root {
+    --preto: #000000;
+    --warm-red: #FF4500;
+    --branco: #FFFFFF;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--preto);
+    color: var(--branco);
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--warm-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .menu {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .menu a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--warm-red);
+    transition: left 0.3s ease;
+    z-index: -1;
+  }
+  
+  .menu a:hover::before {
+    left: 0;
+  }
+  
+  .menu a:hover {
+    color: var(--branco);
+    transform: translateY(-2px);
+  }
+  
+  main {
+    margin-top: 80px;
+    padding: 40px 20px;
+  }
+  
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,69,0,0.3) 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--warm-red);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .hero p {
+    font-size: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 60px;
+  }
+  
+  .service-card {
+    width: calc(25% - 20px);
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--warm-red);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255,69,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255,69,0,0.3);
+  }
+  
+  .service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .service-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+
+  .service-card h3 {
+    padding: 20px 20px 10px;
+    margin: 0;
+    color: var(--warm-red);
+    font-size: 18px;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+  
+  .service-card p {
+    padding: 0 20px 20px;
+    margin: 0;
+    color: var(--branco);
+    font-size: 14px;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--warm-red);
+    border-radius: 15px;
+    color: var(--branco);
+    box-shadow: 0 10px 20px rgba(255,69,0,0.2);
+  }
+  
+  .contact-form h2 {
+    margin-top: 0;
+    color: var(--warm-red);
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--warm-red);
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--warm-red);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--branco);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--warm-red);
+    outline: none;
+  }
+  
+  .form-group textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  button {
+    background-color: var(--warm-red);
+    color: var(--branco);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  button:hover {
+    background-color: #FF6347;
+    transform: translateY(-2px);
+  }
+  
+  footer {
+    background-color: var(--preto);
+    color: var(--branco);
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    border-top: 2px solid var(--warm-red);
+  }
+
+  @media screen and (max-width: 1200px) {
+    .service-card {
+      width: calc(50% - 20px);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .service-card {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .logo {
+      font-size: 20px;
+    }
+
+    .menu a {
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">FEBSINFO</div>
+      <div class="menu">
+        <a href="#home" data-section="home">Home</a>
+        <a href="#services" data-section="services">Serviços</a>
+        <a href="#contact" data-section="contact">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>FEBSINFO Suporte Técnico e Soluções</h1>
+        <p>Inovação tecnológica para impulsionar o seu negócio</p>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="service-card" data-service="computadores">
+        <img alt="Técnico realizando manutenção em computador moderno" src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="300" height="200">
+        <h3>Manutenção em Computadores</h3>
+        <p>Soluções rápidas e eficientes para manter seu computador funcionando perfeitamente.</p>
+      </div>
+      <div class="service-card" data-service="placas">
+        <img alt="Técnico especializado reparando placa-mãe com equipamento de precisão" src="https://images.unsplash.com/photo-1601342630314-8427c38bf5e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="300" height="200">
+        <h3>Reparo de Placas Mãe</h3>
+        <p>Diagnóstico preciso e reparos especializados para estender a vida útil do seu equipamento.</p>
+      </div>
+      <div class="service-card" data-service="cabeamento">
+        <img alt="Instalação profissional de cabeamento estruturado em escritório moderno" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="300" height="200">
+        <h3>Cabeamento Estruturado</h3>
+        <p>Infraestrutura de rede organizada e eficiente para otimizar a conectividade da sua empresa.</p>
+      </div>
+      <div class="service-card" data-service="ti">
+        <img alt="Equipe de TI colaborando em ambiente de trabalho de alta tecnologia" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="300" height="200">
+        <h3>Serviços de TI Avançados</h3>
+        <p>Suporte abrangente e soluções personalizadas para todas as suas necessidades de TI.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-form">
+      <h2>Solicite um Orçamento ou Visita Técnica</h2>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Serviço</label>
+          <select id="service" name="service" required>
+            <option value="">Selecione um serviço</option>
+            <option value="computadores">Manutenção em Computadores</option>
+            <option value="placas">Reparo de Placas Mãe</option>
+            <option value="cabeamento">Cabeamento Estruturado</option>
+            <option value="ti">Serviços de TI Avançados</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Enviar Solicitação</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 FEBSINFO - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animações com GSAP
+    gsap.from('.hero-content', {opacity: 0, y: 50, duration: 1.5, ease: "power3.out"});
+    
+    gsap.from('.service-card', {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.services',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.from('.contact-form', {
+      opacity: 0,
+      scale: 0.9,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: '.contact-form',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    // Animação do logo
+    gsap.to('.logo', {
+      duration: 2,
+      scale: 1.05,
+      yoyo: true,
+      repeat: -1,
+      ease: "power1.inOut"
+    });
+
+    // Animação das imagens dos serviços
+    gsap.utils.toArray('.service-card img').forEach(img => {
+      gsap.to(img, {
+        scale: 1.1,
+        duration: 0.3,
+        paused: true
+      });
+      
+      img.parentElement.addEventListener('mouseenter', () => gsap.to(img, {scale: 1.1}));
+      img.parentElement.addEventListener('mouseleave', () => gsap.to(img, {scale: 1}));
+    });
+
+    // Formulário de contato
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simular envio do formulário
+      alert('Obrigado pelo contato! Retornaremos em breve.');
+      this.reset();
+    });
+
+    // Menu interativo
+    const menuItems = document.querySelectorAll('.menu a');
+    menuItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Efeito parallax na hero section
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      const parallaxSpeed = 0.5;
+      hero.style.backgroundPositionY = -(scrolled * parallaxSpeed) + 'px';
+    });
+
+    // Interatividade nos cards de serviço
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const service = this.getAttribute('data-service');
+        document.getElementById('service').value = service;
+        document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+      });
+    });
+
+    // Highlight do menu ativo
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      menuItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-section') === current) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
